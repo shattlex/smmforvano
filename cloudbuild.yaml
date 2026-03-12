@@ -1,0 +1,34 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - ${_IMAGE}
+      - .
+
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - ${_IMAGE}
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE}
+      - --image=${_IMAGE}
+      - --region=${_REGION}
+      - --platform=managed
+      - --allow-unauthenticated
+      - --port=8080
+      - --set-env-vars=DATABASE_URL=${_DATABASE_URL},SESSION_SECRET=${_SESSION_SECRET},ADMIN_EMAIL=${_ADMIN_EMAIL},ADMIN_PASSWORD=${_ADMIN_PASSWORD}
+
+substitutions:
+  _SERVICE: seed-monitor
+  _REGION: europe-west3
+  _IMAGE: europe-west3-docker.pkg.dev/$PROJECT_ID/seed-monitor/seed-monitor:latest
+  _DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/seed_monitor
+  _SESSION_SECRET: change_me
+  _ADMIN_EMAIL: admin@example.com
+  _ADMIN_PASSWORD: change_me

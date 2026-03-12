@@ -1,0 +1,88 @@
+:root {
+  --bg: #eef4f1;
+  --panel: #ffffff;
+  --text: #1b2822;
+  --muted: #607067;
+  --line: #d7e5dd;
+  --accent: #0f6e53;
+  --error: #b02929;
+  --font-main: "Manrope", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background: radial-gradient(circle at 20% 10%, #dceee5 0%, transparent 40%), var(--bg);
+  color: var(--text);
+}
+
+.wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.card {
+  width: min(100%, 420px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 32px rgba(14, 26, 21, 0.08);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 8px 0;
+}
+
+.hint {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 14px;
+}
+
+input {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+button {
+  margin-top: 6px;
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  background: linear-gradient(120deg, var(--accent), #0e8a6e);
+  color: #fff;
+  cursor: pointer;
+}
+
+.error {
+  min-height: 18px;
+  color: var(--error);
+  font-size: 13px;
+}

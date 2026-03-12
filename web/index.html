@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seed Deliverability Monitor</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a"></div>
+    <div class="bg-shape bg-shape-b"></div>
+
+    <header class="hero">
+      <div>
+        <p class="eyebrow">GRAY EMAIL OPS</p>
+        <h1>Seed Deliverability Monitor</h1>
+        <p class="subtitle">Контроль Inbox / Spam / Missing по контрольным почтам в реальном времени.</p>
+      </div>
+      <div class="hero-actions">
+        <span id="userEmail" class="user-email"></span>
+        <button id="runBtn" class="run-btn">Run Check</button>
+        <button id="logoutBtn" class="ghost-btn">Выйти</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="kpi-grid" id="kpiGrid"></section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <h2>Последние запуски</h2>
+          <button id="refreshBtn" class="ghost-btn">Обновить</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Run ID</th>
+                <th>Статус</th>
+                <th>Inbox</th>
+                <th>Spam</th>
+                <th>Not Delivered</th>
+                <th>Errors</th>
+                <th>Старт (UTC)</th>
+              </tr>
+            </thead>
+            <tbody id="runsBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Последние проверки</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Run</th>
+                <th>Campaign</th>
+                <th>Seed</th>
+                <th>Status</th>
+                <th>Folder</th>
+                <th>Latest UTC</th>
+                <th>Error</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

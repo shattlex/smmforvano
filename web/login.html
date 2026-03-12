@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seed Monitor Login</title>
+    <link rel="stylesheet" href="/login.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <p class="eyebrow">SEED MONITOR</p>
+        <h1>Вход в систему</h1>
+        <p class="hint">Используйте корпоративный логин администратора.</p>
+
+        <form id="loginForm">
+          <label>
+            Email
+            <input id="email" type="email" required />
+          </label>
+          <label>
+            Пароль
+            <input id="password" type="password" required />
+          </label>
+          <button type="submit">Войти</button>
+        </form>
+
+        <p id="error" class="error"></p>
+      </section>
+    </main>
+
+    <script src="/login.js"></script>
+  </body>
+</html>
